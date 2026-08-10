@@ -15,7 +15,7 @@ const tileClass =
   "group animate-soft-rise flex w-[4.6rem] flex-col items-center gap-2 text-black transition-all duration-300 hover:-translate-y-1 focus-visible:outline-none sm:w-[5rem]";
 
 const glyphClass =
-  "h-[3.4rem] w-[3.4rem] transition-transform duration-300 group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-4 group-focus-visible:outline-black sm:h-[3.7rem] sm:w-[3.7rem]";
+  "h-[2.7rem] w-[2.7rem] transition-transform duration-300 group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-4 group-focus-visible:outline-black sm:h-[2.9rem] sm:w-[2.9rem]";
 
 const labelClass = "text-[0.72rem] font-normal tracking-wide text-black";
 
