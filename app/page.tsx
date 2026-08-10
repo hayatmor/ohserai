@@ -12,7 +12,7 @@ import {
 import { contact, whatsappUrl } from "@/lib/contact";
 
 const actionClass =
-  "group animate-soft-rise inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-champagne/40 bg-white text-ink shadow-[0_0_0_3px_#ffffff,0_0_0_4px_rgba(176,152,106,0.25),0_14px_28px_-20px_rgba(17,17,17,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-[0_0_0_3px_#ffffff,0_0_0_4px_rgba(176,152,106,0.6),0_18px_32px_-16px_rgba(17,17,17,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne";
+  "group animate-soft-rise inline-flex h-[3.6rem] w-[3.6rem] shrink-0 items-center justify-center rounded-[1.15rem] text-ink transition-all duration-300 hover:-translate-y-1 hover:text-champagne focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne sm:h-16 sm:w-16";
 
 export default function Home() {
   return (
@@ -73,7 +73,7 @@ export default function Home() {
                 aria-label="חיוג"
                 title="חיוג"
               >
-                <PhoneIcon className="h-7 w-7" />
+                <PhoneIcon className="h-full w-full" />
               </a>
 
               <a
@@ -84,7 +84,7 @@ export default function Home() {
                 title="שמירת איש קשר"
                 download
               >
-                <ContactIcon className="h-7 w-7" />
+                <ContactIcon className="h-full w-full" />
               </a>
 
               <NavigateButton
@@ -93,7 +93,7 @@ export default function Home() {
                 aria-label="ניווט למשרד"
                 title="ניווט למשרד"
               >
-                <NavigateIcon className="h-7 w-7" />
+                <NavigateIcon className="h-full w-full" />
               </NavigateButton>
 
               <a
@@ -105,7 +105,7 @@ export default function Home() {
                 aria-label="שיחה בוואטסאפ"
                 title="WhatsApp"
               >
-                <WhatsAppIcon className="h-7 w-7" />
+                <WhatsAppIcon className="h-full w-full" />
               </a>
 
               <a
@@ -115,7 +115,7 @@ export default function Home() {
                 aria-label="אימייל"
                 title="אימייל"
               >
-                <MailIcon className="h-7 w-7" />
+                <MailIcon className="h-full w-full" />
               </a>
 
               <a
@@ -127,7 +127,7 @@ export default function Home() {
                 aria-label="Facebook"
                 title="Facebook"
               >
-                <FacebookIcon className="h-7 w-7" />
+                <FacebookIcon className="h-full w-full" />
               </a>
 
               <a
@@ -139,7 +139,7 @@ export default function Home() {
                 aria-label="Instagram"
                 title="Instagram"
               >
-                <InstagramIcon className="h-7 w-7" />
+                <InstagramIcon className="h-full w-full" />
               </a>
             </div>
           </section>
