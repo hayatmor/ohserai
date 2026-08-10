@@ -52,7 +52,7 @@ export default function Home() {
             <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/85 via-black/45 to-transparent px-5 pb-5 pt-28 text-center sm:px-6 sm:pb-6">
               <h1 className="animate-fade-up text-[1.9rem] font-bold leading-tight sm:text-[2.15rem] [font-family:var(--font-serif),serif]">
                 <span className="name-shimmer">
-                  {contact.fullName}, {contact.title}
+                  {contact.fullName} - {contact.title}
                 </span>
               </h1>
               <div
