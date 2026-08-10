@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Heebo, Rubik } from "next/font/google";
+import { Heebo, Noto_Serif_Hebrew } from "next/font/google";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -8,10 +8,10 @@ const heebo = Heebo({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const rubik = Rubik({
-  variable: "--font-name",
+const notoSerif = Noto_Serif_Hebrew({
+  variable: "--font-serif",
   subsets: ["hebrew", "latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -47,7 +47,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="he" dir="rtl" className={`${heebo.variable} ${rubik.variable} h-full antialiased`}>
+    <html lang="he" dir="rtl" className={`${heebo.variable} ${notoSerif.variable} h-full antialiased`}>
       <body className="relative min-h-full font-sans text-foreground">{children}</body>
     </html>
   );

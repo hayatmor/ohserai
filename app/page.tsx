@@ -7,29 +7,22 @@ import {
   MailIcon,
   NavigateIcon,
   PhoneIcon,
-  PinIcon,
   WhatsAppIcon,
 } from "@/components/Icons";
-import { contact, googleMapsUrl, whatsappUrl } from "@/lib/contact";
+import { contact, whatsappUrl } from "@/lib/contact";
 
-const primaryActionClass =
-  "group flex min-h-[6.75rem] flex-1 flex-col items-center justify-start gap-2 rounded-2xl border border-line bg-white/80 px-1.5 pb-3 pt-3.5 text-center text-ink shadow-[0_10px_30px_-18px_rgba(17,17,17,0.45)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-champagne/50 hover:shadow-[0_16px_36px_-16px_rgba(17,17,17,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne sm:min-h-0 sm:justify-center sm:px-3 sm:py-4";
-
-const primaryLabelClass =
-  "px-0.5 text-[0.7rem] font-medium leading-snug sm:text-sm";
-
-const socialClass =
-  "inline-flex h-12 w-12 items-center justify-center rounded-[0.85rem] border border-ink/20 bg-transparent text-ink transition duration-300 hover:-translate-y-0.5 hover:border-champagne hover:text-champagne focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne";
+const actionClass =
+  "group animate-soft-rise inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-champagne/40 bg-white text-ink shadow-[0_0_0_3px_#ffffff,0_0_0_4px_rgba(176,152,106,0.25),0_14px_28px_-20px_rgba(17,17,17,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-[0_0_0_3px_#ffffff,0_0_0_4px_rgba(176,152,106,0.6),0_18px_32px_-16px_rgba(17,17,17,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-champagne";
 
 export default function Home() {
   return (
     <>
       <div className="grain" aria-hidden="true" />
 
-      <main className="relative z-10 mx-auto flex min-h-dvh w-full max-w-md flex-col px-4 pb-10 pt-5 sm:max-w-lg sm:px-6 sm:pt-8">
-        <article className="animate-fade-in overflow-hidden rounded-[1.75rem] bg-white shadow-[0_30px_80px_-36px_rgba(17,17,17,0.55)]">
+      <main className="relative z-10 mx-auto flex min-h-dvh w-full justify-center sm:px-4 sm:py-8">
+        <article className="animate-fade-in flex min-h-dvh w-full max-w-[430px] flex-col overflow-hidden bg-white sm:min-h-[780px] sm:rounded-[2rem] sm:shadow-[0_30px_80px_-35px_rgba(17,17,17,0.4)]">
           {/* Photo + logo overlay */}
-          <section className="relative aspect-[3/4] w-full overflow-hidden bg-[#f5f5f5]">
+          <section className="relative aspect-[786/1024] w-full shrink-0 overflow-hidden bg-[#f5f5f5]">
             <Image
               src="/photo.jpg"
               alt={contact.fullName}
@@ -52,96 +45,102 @@ export default function Home() {
             </div>
 
             {/* Name over the jacket area */}
-            <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/70 via-black/35 to-transparent px-6 pb-6 pt-24 text-center sm:px-8 sm:pb-7">
-              <h1 className="animate-fade-up text-[2.75rem] font-medium leading-none tracking-tight text-white sm:text-[3.25rem] [font-family:var(--font-name),sans-serif]">
-                {contact.fullName}
+            <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-6 pb-7 pt-28 text-center sm:px-8 sm:pb-8">
+              <h1 className="animate-fade-up text-5xl font-semibold leading-none sm:text-[3.4rem] [font-family:var(--font-serif),serif]">
+                <span className="name-shimmer">{contact.fullName}</span>
               </h1>
-              <p className="animate-fade-up delay-1 mt-1.5 text-base font-light text-white/90">
+              <div
+                aria-hidden="true"
+                className="gold-divider mx-auto mt-4 h-px w-28 bg-gradient-to-r from-transparent via-champagne-soft to-transparent"
+              />
+              <p className="animate-fade-up delay-2 mt-3 text-sm font-light tracking-[0.25em] text-white/85 sm:text-base">
                 {contact.title}
               </p>
             </div>
           </section>
 
           {/* Actions below the photo / jacket */}
-          <section className="px-4 pb-7 pt-5 sm:px-6 sm:pb-8 sm:pt-6">
-            <div className="animate-soft-rise delay-2 flex gap-2 sm:gap-3">
-              <a href={`tel:${contact.phoneE164}`} className={primaryActionClass} aria-label="חיוג">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/25 bg-ink text-white transition group-hover:border-champagne/40 group-hover:bg-champagne sm:h-11 sm:w-11">
-                  <PhoneIcon className="h-[1.35rem] w-[1.35rem]" />
-                </span>
-                <span className={primaryLabelClass}>חיוג</span>
+          <section className="relative flex flex-1 items-center justify-center bg-white px-5 py-8 sm:px-6">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-champagne/45 to-transparent"
+            />
+            <div className="flex max-w-[360px] flex-wrap items-center justify-center gap-x-5 gap-y-6">
+              <a
+                href={`tel:${contact.phoneE164}`}
+                className={actionClass}
+                style={{ animationDelay: "0.3s" }}
+                aria-label="חיוג"
+                title="חיוג"
+              >
+                <PhoneIcon className="h-7 w-7" />
               </a>
 
-              <a href="/api/vcard" className={primaryActionClass} aria-label="שמירת איש קשר" download>
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/25 bg-ink text-white transition group-hover:border-champagne/40 group-hover:bg-champagne sm:h-11 sm:w-11">
-                  <ContactIcon className="h-[1.35rem] w-[1.35rem]" />
-                </span>
-                <span className={primaryLabelClass}>
-                  שמירת
-                  <br />
-                  איש קשר
-                </span>
+              <a
+                href="/api/vcard"
+                className={actionClass}
+                style={{ animationDelay: "0.38s" }}
+                aria-label="שמירת איש קשר"
+                title="שמירת איש קשר"
+                download
+              >
+                <ContactIcon className="h-7 w-7" />
               </a>
 
-              <NavigateButton className={primaryActionClass} aria-label="ניווט למשרד">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/25 bg-ink text-white transition group-hover:border-champagne/40 group-hover:bg-champagne sm:h-11 sm:w-11">
-                  <NavigateIcon className="h-[1.35rem] w-[1.35rem]" />
-                </span>
-                <span className={primaryLabelClass}>
-                  ניווט
-                  <br />
-                  למשרד
-                </span>
+              <NavigateButton
+                className={actionClass}
+                style={{ animationDelay: "0.46s" }}
+                aria-label="ניווט למשרד"
+                title="ניווט למשרד"
+              >
+                <NavigateIcon className="h-7 w-7" />
               </NavigateButton>
-            </div>
 
-            <a
-              href={whatsappUrl("שלום אושר, אשמח לשוחח לגבי נדל״ן")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="animate-soft-rise delay-3 mt-4 flex w-full items-center justify-center gap-3 rounded-2xl border border-ink bg-ink px-5 py-3.5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-champagne hover:border-champagne focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne"
-            >
-              <WhatsAppIcon className="h-5 w-5" />
-              שיחה בוואטסאפ
-            </a>
-
-            <div className="animate-soft-rise delay-4 mt-5 flex flex-wrap items-center justify-center gap-3">
-              <a href={`mailto:${contact.email}`} className={socialClass} aria-label="אימייל">
-                <MailIcon className="h-[1.35rem] w-[1.35rem]" />
+              <a
+                href={whatsappUrl("שלום אושר, אשמח לשוחח לגבי נדל״ן")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={actionClass}
+                style={{ animationDelay: "0.54s" }}
+                aria-label="שיחה בוואטסאפ"
+                title="WhatsApp"
+              >
+                <WhatsAppIcon className="h-7 w-7" />
               </a>
+
+              <a
+                href={`mailto:${contact.email}`}
+                className={actionClass}
+                style={{ animationDelay: "0.62s" }}
+                aria-label="אימייל"
+                title="אימייל"
+              >
+                <MailIcon className="h-7 w-7" />
+              </a>
+
               <a
                 href={contact.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={socialClass}
+                className={actionClass}
+                style={{ animationDelay: "0.7s" }}
                 aria-label="Facebook"
+                title="Facebook"
               >
-                <FacebookIcon className="h-[1.4rem] w-[1.4rem]" />
+                <FacebookIcon className="h-7 w-7" />
               </a>
+
               <a
                 href={contact.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={socialClass}
+                className={actionClass}
+                style={{ animationDelay: "0.78s" }}
                 aria-label="Instagram"
+                title="Instagram"
               >
-                <InstagramIcon className="h-[1.4rem] w-[1.4rem]" />
+                <InstagramIcon className="h-7 w-7" />
               </a>
-            </div>
-
-            <div className="animate-fade-up delay-4 mt-6 border-t border-line pt-5 text-center">
-              <a
-                href={googleMapsUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-muted transition hover:text-ink"
-              >
-                <PinIcon className="h-4 w-4 text-champagne" />
-                <span>{contact.addressFull}</span>
-              </a>
-              <p className="mt-2 text-sm text-muted/80" dir="ltr">
-                {contact.phoneDisplay} · {contact.email}
-              </p>
             </div>
           </section>
         </article>

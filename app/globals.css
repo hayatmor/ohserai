@@ -22,7 +22,7 @@
   --color-surface: var(--surface);
   --color-ink: var(--ink);
   --font-sans: var(--font-heebo);
-  --font-display: var(--font-name);
+  --font-display: var(--font-serif);
 }
 
 * {
@@ -37,10 +37,14 @@ body {
   margin: 0;
   min-height: 100dvh;
   color: var(--foreground);
-  background:
-    radial-gradient(1200px 600px at 50% -10%, rgba(201, 184, 150, 0.18), transparent 55%),
-    linear-gradient(180deg, #ffffff 0%, var(--background) 45%, var(--background-deep) 100%);
+  background: #f3f3f1;
   font-family: var(--font-heebo), system-ui, sans-serif;
+}
+
+@media (max-width: 640px) {
+  body {
+    background: #ffffff;
+  }
 }
 
 ::selection {
@@ -111,6 +115,59 @@ body {
   position: fixed;
   inset: 0;
   z-index: 0;
-  opacity: 0.035;
+  opacity: 0.018;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Luxury gold shimmer sweeping across the name */
+@keyframes gold-shimmer {
+  0% {
+    background-position: 190% center;
+  }
+  100% {
+    background-position: -190% center;
+  }
+}
+
+.name-shimmer {
+  background: linear-gradient(
+    105deg,
+    #ffffff 28%,
+    #e9d9ac 44%,
+    #fdf6e3 50%,
+    #e9d9ac 56%,
+    #ffffff 72%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #ffffff;
+  animation: gold-shimmer 5.5s ease-in-out infinite;
+}
+
+@keyframes line-grow {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.gold-divider {
+  transform-origin: center;
+  animation: line-grow 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .name-shimmer,
+  .gold-divider,
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-soft-rise {
+    animation: none;
+  }
 }
