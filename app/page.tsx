@@ -12,12 +12,12 @@ import {
 import { contact, whatsappUrl } from "@/lib/contact";
 
 const tileClass =
-  "group animate-soft-rise flex w-[4.6rem] flex-col items-center gap-2 text-ink transition-all duration-300 hover:-translate-y-1 hover:text-champagne focus-visible:outline-none sm:w-[5rem]";
+  "group animate-soft-rise flex w-[4.6rem] flex-col items-center gap-2 text-black transition-all duration-300 hover:-translate-y-1 focus-visible:outline-none sm:w-[5rem]";
 
 const glyphClass =
-  "h-[3.4rem] w-[3.4rem] transition-transform duration-300 group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-4 group-focus-visible:outline-champagne sm:h-[3.7rem] sm:w-[3.7rem]";
+  "h-[3.4rem] w-[3.4rem] transition-transform duration-300 group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-4 group-focus-visible:outline-black sm:h-[3.7rem] sm:w-[3.7rem]";
 
-const labelClass = "text-[0.72rem] font-light tracking-wide text-muted transition-colors duration-300 group-hover:text-champagne";
+const labelClass = "text-[0.72rem] font-normal tracking-wide text-black";
 
 export default function Home() {
   return (
