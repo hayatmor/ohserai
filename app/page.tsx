@@ -12,7 +12,10 @@ import {
 import { contact, googleMapsUrl, whatsappUrl } from "@/lib/contact";
 
 const primaryActionClass =
-  "group flex flex-1 flex-col items-center justify-center gap-2 rounded-2xl border border-line bg-white/80 px-3 py-4 text-ink shadow-[0_10px_30px_-18px_rgba(17,17,17,0.45)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-champagne/50 hover:shadow-[0_16px_36px_-16px_rgba(17,17,17,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne";
+  "group flex min-h-[6.75rem] flex-1 flex-col items-center justify-start gap-2 rounded-2xl border border-line bg-white/80 px-1.5 pb-3 pt-3.5 text-center text-ink shadow-[0_10px_30px_-18px_rgba(17,17,17,0.45)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-champagne/50 hover:shadow-[0_16px_36px_-16px_rgba(17,17,17,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne sm:min-h-0 sm:justify-center sm:px-3 sm:py-4";
+
+const primaryLabelClass =
+  "px-0.5 text-[0.7rem] font-medium leading-snug sm:text-sm";
 
 const socialClass =
   "inline-flex h-12 w-12 items-center justify-center rounded-full border border-line bg-white/90 text-ink transition duration-300 hover:-translate-y-0.5 hover:border-champagne hover:text-champagne focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne";
@@ -60,26 +63,34 @@ export default function Home() {
 
           {/* Actions below the photo / jacket */}
           <section className="px-4 pb-7 pt-5 sm:px-6 sm:pb-8 sm:pt-6">
-            <div className="animate-soft-rise delay-2 flex gap-3">
+            <div className="animate-soft-rise delay-2 flex gap-2 sm:gap-3">
               <a href={`tel:${contact.phoneE164}`} className={primaryActionClass} aria-label="חיוג">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-white transition group-hover:bg-champagne">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ink text-white transition group-hover:bg-champagne sm:h-11 sm:w-11">
                   <PhoneIcon className="h-5 w-5" />
                 </span>
-                <span className="text-sm font-medium">חיוג</span>
+                <span className={primaryLabelClass}>חיוג</span>
               </a>
 
               <a href="/api/vcard" className={primaryActionClass} aria-label="שמירת איש קשר" download>
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-white transition group-hover:bg-champagne">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ink text-white transition group-hover:bg-champagne sm:h-11 sm:w-11">
                   <ContactIcon className="h-5 w-5" />
                 </span>
-                <span className="text-sm font-medium">שמירת איש קשר</span>
+                <span className={primaryLabelClass}>
+                  שמירת
+                  <br />
+                  איש קשר
+                </span>
               </a>
 
               <NavigateButton className={primaryActionClass} aria-label="ניווט למשרד">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-ink text-white transition group-hover:bg-champagne">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ink text-white transition group-hover:bg-champagne sm:h-11 sm:w-11">
                   <PinIcon className="h-5 w-5" />
                 </span>
-                <span className="text-sm font-medium">ניווט למשרד</span>
+                <span className={primaryLabelClass}>
+                  ניווט
+                  <br />
+                  למשרד
+                </span>
               </NavigateButton>
             </div>
 
