@@ -37,14 +37,14 @@ export default function Home() {
               className="object-cover object-[center_18%]"
             />
 
-            <div className="absolute inset-x-0 top-0 z-10 flex justify-center pt-4 sm:pt-5">
+            <div className="absolute left-3 top-3 z-10 sm:left-4 sm:top-4">
               <Image
                 src="/logo.png"
                 alt="Rosenberger RE/MAX"
                 width={420}
                 height={160}
                 priority
-                className="h-auto w-[150px] object-contain drop-shadow-[0_2px_12px_rgba(0,0,0,0.25)] sm:w-[170px]"
+                className="h-auto w-[128px] object-contain drop-shadow-[0_2px_12px_rgba(0,0,0,0.25)] sm:w-[145px]"
               />
             </div>
 
