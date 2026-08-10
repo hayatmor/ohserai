@@ -5,6 +5,7 @@ import {
   FacebookIcon,
   InstagramIcon,
   MailIcon,
+  NavigateIcon,
   PhoneIcon,
   PinIcon,
   WhatsAppIcon,
@@ -18,7 +19,7 @@ const primaryLabelClass =
   "px-0.5 text-[0.7rem] font-medium leading-snug sm:text-sm";
 
 const socialClass =
-  "inline-flex h-12 w-12 items-center justify-center rounded-full border border-line bg-white/90 text-ink transition duration-300 hover:-translate-y-0.5 hover:border-champagne hover:text-champagne focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne";
+  "inline-flex h-12 w-12 items-center justify-center rounded-[0.85rem] border border-ink/20 bg-transparent text-ink transition duration-300 hover:-translate-y-0.5 hover:border-champagne hover:text-champagne focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne";
 
 export default function Home() {
   return (
@@ -65,15 +66,15 @@ export default function Home() {
           <section className="px-4 pb-7 pt-5 sm:px-6 sm:pb-8 sm:pt-6">
             <div className="animate-soft-rise delay-2 flex gap-2 sm:gap-3">
               <a href={`tel:${contact.phoneE164}`} className={primaryActionClass} aria-label="חיוג">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ink text-white transition group-hover:bg-champagne sm:h-11 sm:w-11">
-                  <PhoneIcon className="h-5 w-5" />
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/25 bg-ink text-white transition group-hover:border-champagne/40 group-hover:bg-champagne sm:h-11 sm:w-11">
+                  <PhoneIcon className="h-[1.35rem] w-[1.35rem]" />
                 </span>
                 <span className={primaryLabelClass}>חיוג</span>
               </a>
 
               <a href="/api/vcard" className={primaryActionClass} aria-label="שמירת איש קשר" download>
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ink text-white transition group-hover:bg-champagne sm:h-11 sm:w-11">
-                  <ContactIcon className="h-5 w-5" />
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/25 bg-ink text-white transition group-hover:border-champagne/40 group-hover:bg-champagne sm:h-11 sm:w-11">
+                  <ContactIcon className="h-[1.35rem] w-[1.35rem]" />
                 </span>
                 <span className={primaryLabelClass}>
                   שמירת
@@ -83,8 +84,8 @@ export default function Home() {
               </a>
 
               <NavigateButton className={primaryActionClass} aria-label="ניווט למשרד">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ink text-white transition group-hover:bg-champagne sm:h-11 sm:w-11">
-                  <PinIcon className="h-5 w-5" />
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/25 bg-ink text-white transition group-hover:border-champagne/40 group-hover:bg-champagne sm:h-11 sm:w-11">
+                  <NavigateIcon className="h-[1.35rem] w-[1.35rem]" />
                 </span>
                 <span className={primaryLabelClass}>
                   ניווט
@@ -98,7 +99,7 @@ export default function Home() {
               href={whatsappUrl("שלום אושר, אשמח לשוחח לגבי נדל״ן")}
               target="_blank"
               rel="noopener noreferrer"
-              className="animate-soft-rise delay-3 mt-4 flex w-full items-center justify-center gap-3 rounded-2xl bg-ink px-5 py-3.5 text-sm font-medium text-white transition duration-300 hover:bg-champagne focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne"
+              className="animate-soft-rise delay-3 mt-4 flex w-full items-center justify-center gap-3 rounded-2xl border border-ink bg-ink px-5 py-3.5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-champagne hover:border-champagne focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne"
             >
               <WhatsAppIcon className="h-5 w-5" />
               שיחה בוואטסאפ
@@ -106,7 +107,7 @@ export default function Home() {
 
             <div className="animate-soft-rise delay-4 mt-5 flex flex-wrap items-center justify-center gap-3">
               <a href={`mailto:${contact.email}`} className={socialClass} aria-label="אימייל">
-                <MailIcon className="h-5 w-5" />
+                <MailIcon className="h-[1.35rem] w-[1.35rem]" />
               </a>
               <a
                 href={contact.facebook}
@@ -115,7 +116,7 @@ export default function Home() {
                 className={socialClass}
                 aria-label="Facebook"
               >
-                <FacebookIcon className="h-5 w-5" />
+                <FacebookIcon className="h-[1.4rem] w-[1.4rem]" />
               </a>
               <a
                 href={contact.instagram}
@@ -124,7 +125,7 @@ export default function Home() {
                 className={socialClass}
                 aria-label="Instagram"
               >
-                <InstagramIcon className="h-5 w-5" />
+                <InstagramIcon className="h-[1.4rem] w-[1.4rem]" />
               </a>
             </div>
 
