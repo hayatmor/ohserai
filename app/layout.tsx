@@ -39,16 +39,18 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: "#f5ecd9",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 5,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="he" dir="rtl" className={`${heebo.variable} ${notoSerif.variable} h-full antialiased`}>
-      <body className="relative min-h-full font-sans text-foreground">{children}</body>
+      <body className="h-full overflow-hidden font-sans text-foreground">{children}</body>
     </html>
   );
 }

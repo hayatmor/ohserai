@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafafa;
-  --background-deep: #f3f1ee;
+  --background: #f6efe3;
+  --background-deep: #efe4d0;
+  --cream: #f5ecd9;
   --foreground: #1a1a1a;
   --muted: #6b6560;
   --line: rgba(26, 26, 26, 0.1);
   --champagne: #b0986a;
   --champagne-soft: #c9b896;
-  --surface: rgba(255, 255, 255, 0.82);
+  --surface: rgba(245, 236, 217, 0.92);
   --ink: #111111;
 }
 
@@ -30,20 +31,90 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
 body {
   margin: 0;
-  min-height: 100dvh;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: manipulation;
   color: var(--foreground);
-  background: #f3f3f1;
+  background: var(--cream);
   font-family: var(--font-heebo), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-@media (max-width: 640px) {
+/* Full-viewport shell: no page scroll, no empty margins */
+.card-shell {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  height: 100dvh;
+  width: 100%;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.business-card {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  max-width: 430px;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.card-photo {
+  position: relative;
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  background: #f0e6d4;
+}
+
+.card-actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+  padding: 0.85rem 0.75rem 1.1rem;
+}
+
+@media (min-width: 640px) {
   body {
-    background: #ffffff;
+    background: #ebe1cc;
+  }
+
+  .card-shell {
+    align-items: center;
+    padding: 0;
+    background: #ebe1cc;
+  }
+
+  .business-card {
+    height: min(100dvh, 820px);
+    width: min(100vw, 400px);
+    max-width: 400px;
+    border-radius: 0;
+    box-shadow: 0 24px 60px -28px rgba(17, 17, 17, 0.45);
+  }
+
+  .card-actions {
+    padding: 1rem 0.85rem 1.25rem;
+  }
+}
+
+@media (min-width: 640px) and (min-height: 860px) {
+  .business-card {
+    border-radius: 1.5rem;
   }
 }
 
