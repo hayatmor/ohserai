@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f6efe3;
-  --background-deep: #efe4d0;
-  --cream: #f5ecd9;
+  --background: #f5f2ec;
+  --background-deep: #efe8df;
+  --cream: #ebe8e0;
   --foreground: #1a1a1a;
   --muted: #6b6560;
   --line: rgba(26, 26, 26, 0.1);
   --champagne: #b0986a;
   --champagne-soft: #c9b896;
-  --surface: rgba(245, 236, 217, 0.92);
+  --rose-gold: #b08978;
+  --surface: rgba(245, 242, 236, 0.92);
   --ink: #111111;
+  --card-bg: url("/card-bg.png?v=7");
 }
 
 @theme inline {
@@ -48,7 +50,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Full-viewport shell: no page scroll, no empty margins */
 .card-shell {
   position: relative;
   z-index: 10;
@@ -62,41 +63,111 @@ body {
 }
 
 .business-card {
+  position: relative;
   display: flex;
   height: 100%;
   width: 100%;
   max-width: 430px;
   flex-direction: column;
   overflow: hidden;
-  background: var(--cream);
+  background-color: var(--cream);
+  background-image: var(--card-bg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
-.card-photo {
-  position: relative;
-  min-height: 0;
+.card-header {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  right: auto;
+  z-index: 20;
+  padding: 0;
+  line-height: 0;
+}
+
+.card-logo {
+  display: block;
+  height: auto;
+  width: 112px;
+  object-fit: contain;
+}
+
+.card-body {
   flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 1rem 1.25rem;
+}
+
+.card-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.avatar-ring {
+  position: relative;
+  width: min(48vw, 12.25rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
   overflow: hidden;
-  background: #f0e6d4;
+  background: #ddd6cc;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 10px 28px -14px rgba(60, 40, 30, 0.35);
+}
+
+.avatar-photo {
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.card-identity {
+  text-align: center;
+}
+
+.card-name {
+  margin: 0;
+  font-size: clamp(1.45rem, 5.8vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+.card-title {
+  margin: 0.3rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--muted);
 }
 
 .card-actions {
-  flex: 0 0 auto;
+  width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  background: var(--cream);
-  padding: 0.85rem 0.75rem 1.1rem;
+  background: transparent;
+  margin-top: 1.05rem;
+  padding: 0 0.15rem;
 }
 
 @media (min-width: 640px) {
   body {
-    background: #ebe1cc;
+    background: #e8e2d8;
   }
 
   .card-shell {
     align-items: center;
     padding: 0;
-    background: #ebe1cc;
+    background: #e8e2d8;
   }
 
   .business-card {
@@ -107,8 +178,21 @@ body {
     box-shadow: 0 24px 60px -28px rgba(17, 17, 17, 0.45);
   }
 
-  .card-actions {
-    padding: 1rem 0.85rem 1.25rem;
+  .card-header {
+    top: 0.9rem;
+    left: 0.9rem;
+  }
+
+  .card-logo {
+    width: 124px;
+  }
+
+  .card-body {
+    padding: 3.75rem 1.1rem 1.35rem;
+  }
+
+  .avatar-ring {
+    width: 12.5rem;
   }
 }
 
@@ -125,7 +209,7 @@ body {
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
@@ -145,7 +229,7 @@ body {
 @keyframes soft-rise {
   from {
     opacity: 0;
-    transform: translateY(12px) scale(0.98);
+    transform: translateY(10px) scale(0.98);
   }
   to {
     opacity: 1;
@@ -154,43 +238,25 @@ body {
 }
 
 .animate-fade-up {
-  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .animate-fade-in {
-  animation: fade-in 1.1s ease both;
+  animation: fade-in 0.9s ease both;
 }
 
 .animate-soft-rise {
-  animation: soft-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: soft-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .delay-1 {
-  animation-delay: 0.12s;
+  animation-delay: 0.1s;
 }
 
 .delay-2 {
-  animation-delay: 0.24s;
+  animation-delay: 0.2s;
 }
 
-.delay-3 {
-  animation-delay: 0.36s;
-}
-
-.delay-4 {
-  animation-delay: 0.48s;
-}
-
-.grain {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  opacity: 0.018;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* Luxury gold shimmer sweeping across the name */
 @keyframes gold-shimmer {
   0% {
     background-position: 190% center;
@@ -203,39 +269,22 @@ body {
 .name-shimmer {
   background: linear-gradient(
     105deg,
-    #ffffff 28%,
-    #e9d9ac 44%,
-    #fdf6e3 50%,
-    #e9d9ac 56%,
-    #ffffff 72%
+    #5c4036 26%,
+    #b08978 42%,
+    #e8d5c4 50%,
+    #b08978 58%,
+    #5c4036 74%
   );
   background-size: 220% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: #ffffff;
+  color: #5c4036;
   animation: gold-shimmer 5.5s ease-in-out infinite;
-}
-
-@keyframes line-grow {
-  from {
-    transform: scaleX(0);
-    opacity: 0;
-  }
-  to {
-    transform: scaleX(1);
-    opacity: 1;
-  }
-}
-
-.gold-divider {
-  transform-origin: center;
-  animation: line-grow 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .name-shimmer,
-  .gold-divider,
   .animate-fade-up,
   .animate-fade-in,
   .animate-soft-rise {
